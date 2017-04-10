@@ -156,15 +156,14 @@ class ProductPresenter
             $presentedProduct['has_discount'] = (0 != $product['reduction']);
             $presentedProduct['discount_type'] = $product['specific_prices']['reduction_type'];
             // TODO: format according to locale preferences
-            $presentedProduct['discount_percentage'] = -round(100 * $product['specific_prices']['reduction']).'%';
-            $presentedProduct['discount_percentage_absolute'] = round(100 * $product['specific_prices']['reduction']).'%';
+            $presentedProduct['discount_percentage'] = -round(100 * $product['specific_prices']['reduction']).' %';
+            $presentedProduct['discount_percentage_absolute'] = round(100 * $product['specific_prices']['reduction']).' %';
             // TODO: Fix issue with tax calculation
             $presentedProduct['discount_amount'] = $this->priceFormatter->format(
                 $product['reduction']
             );
             $regular_price = $product['price_without_reduction'];
         }
-
         $presentedProduct['price_amount'] = $price;
         $presentedProduct['price'] = $this->priceFormatter->format($price);
         $presentedProduct['regular_price_amount'] = $regular_price;
