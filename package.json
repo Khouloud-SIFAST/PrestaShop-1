@@ -1,11 +1,25 @@
 {
-   "name": "prestashop-common",
-   "version": "1.0.0",
-   "scripts": {
-       "install-test": "npm -C tests/js install",
-       "upgrade-test": "npm -C tests/js update",
-       "test": "cd tests/js && grunt test",
-       "test-short": "cd tests/js && grunt test-short",
-       "test-verbose": "cd tests/js && grunt --stack test-verbose"
-   }
+  "name": "prestashop-common",
+  "version": "1.0.0",
+  "scripts": {
+    "install-test": "npm -C tests/js install",
+    "upgrade-test": "npm -C tests/js update",
+    "test": "cd tests/js && grunt test",
+    "test-short": "cd tests/js && grunt test-short",
+    "test-verbose": "cd tests/js && grunt --stack test-verbose"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-bump": "^2.5.1",
+    "gulp-shell":"^0.5.2",
+    "run-sequence":"^1.2.2",
+    "gulp-util":"^3.0.8"
+  },
+  "devDependencies": {
+
+  },
+  "license": "Proprietary",
+  "engines": {
+    "node": ">=0.10"
+  }
 }
