@@ -7,6 +7,8 @@ services:
     restart: always
     ports:
       - 3310:3306
+    volumes:
+      - ./internationalisation_PS-infrastructure/environnement_integration/database:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: ps
