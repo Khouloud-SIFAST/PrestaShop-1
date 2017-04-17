@@ -23,17 +23,17 @@
  * International Registered Trademark & Property of PrestaShop SA
  *#}
 {% extends(template_from_string(
-    getLegacyLayout(
-        app.request.attributes.get('_legacy_controller'),
-        layoutTitle is defined ? layoutTitle : '',
-        layoutHeaderToolbarBtn is defined ? layoutHeaderToolbarBtn : [],
-        layoutDisplayType is defined ? layoutDisplayType : '',
-        showContentHeader is defined ? showContentHeader : true,
-        headerTabContent is defined ? headerTabContent : '',
-        enableSidebar is defined ? enableSidebar : false,
-        help_link is defined ? help_link : '',
-        isoLocale is defined ? isoLocale : ''
-    )
+getLegacyLayout(
+app.request.attributes.get('_legacy_controller'),
+layoutTitle is defined ? layoutTitle : '',
+layoutHeaderToolbarBtn is defined ? layoutHeaderToolbarBtn : [],
+layoutDisplayType is defined ? layoutDisplayType : '',
+showContentHeader is defined ? showContentHeader : true,
+headerTabContent is defined ? headerTabContent : '',
+enableSidebar is defined ? enableSidebar : false,
+help_link is defined ? help_link : '',
+isoLocale is defined ? isoLocale : ''
+)
 )) %}
 
 {% import 'PrestaShopBundle:Admin:macros.html.twig' as ps %}
@@ -41,11 +41,13 @@
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('themes/default/css/bundle/right-sidebar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('themes/default/css/bundle/theme-rtl.css') }}" />
 {% endblock %}
 
 {% block javascripts %}
     <script src="{{ asset('themes/default/js/bundle/default.js') }}"></script>
     <script src="{{ asset('themes/default/js/bundle/right-sidebar.js') }}"></script>
+    <script src="{{ asset('themes/default/js/bundle/theme-rtl.js') }}"></script>
 {% endblock %}
 
 {% block translate_javascripts %}
@@ -59,27 +61,27 @@
     {% if app.session.flashbag.peek('error')|length() > 0 %}
         <div class="flash-message-list alert alert-danger">
             <ul>
-            {% for flashMessage in app.session.flashbag.get('error') %}
-                <li>{{ flashMessage }}</li>
-            {% endfor %}
+                {% for flashMessage in app.session.flashbag.get('error') %}
+                    <li>{{ flashMessage }}</li>
+                {% endfor %}
             </ul>
         </div>
     {% endif %}
     {% if app.session.flashbag.peek('failure')|length() > 0 %}
         <div class="flash-message-list alert alert-danger">
             <ul>
-            {% for flashMessage in app.session.flashbag.get('failure') %}
-                <li>{{ flashMessage }}</li>
-            {% endfor %}
+                {% for flashMessage in app.session.flashbag.get('failure') %}
+                    <li>{{ flashMessage }}</li>
+                {% endfor %}
             </ul>
         </div>
     {% endif %}
     {% if app.session.flashbag.peek('success')|length() > 0 %}
         <div class="flash-message-list alert alert-success">
             <ul>
-            {% for flashMessage in app.session.flashbag.get('success') %}
-                <li>{{ flashMessage }}</li>
-            {% endfor %}
+                {% for flashMessage in app.session.flashbag.get('success') %}
+                    <li>{{ flashMessage }}</li>
+                {% endfor %}
             </ul>
         </div>
     {% endif %}

@@ -5,6 +5,8 @@ services:
     container_name: mysql-interntionalisation-PS-itg
     image: mysql:5.7
     restart: always
+    volumes:
+         - ./internationalisation_PS-infrastructure/environnement_integration/database:/docker-entrypoint-initdb.d
     ports:
       - 3309:3306
     environment:
