@@ -2,10 +2,10 @@
   'parameters' => 
   array (
     'database_host' => '192.168.1.176',
-    'database_port' => '3308',
+    'database_port' => '3309',
     'database_name' => 'ps',
     'database_user' => 'root',
-    'database_password' => '',
+    'database_password' => 'admin',
     'database_prefix' => 'ps_',
     'database_engine' => 'InnoDB',
     'mailer_transport' => 'smtp',
