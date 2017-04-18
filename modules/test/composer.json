@@ -1,0 +1,17 @@
+{
+  "name": "prestashop/test",
+  "description": "PrestaShop module test",
+  "authors": [
+    {
+      "name": "test",
+      "email": "presta@test.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4"
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "type": "prestashop-module"
+}
