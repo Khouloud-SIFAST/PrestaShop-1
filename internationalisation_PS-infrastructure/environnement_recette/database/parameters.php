@@ -5,7 +5,7 @@
     'database_port' => '3310',
     'database_name' => 'ps',
     'database_user' => 'root',
-    'database_password' => '',
+    'database_password' => 'admin',
     'database_prefix' => 'ps_',
     'database_engine' => 'InnoDB',
     'mailer_transport' => 'smtp',
