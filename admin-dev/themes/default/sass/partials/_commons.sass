@@ -61,6 +61,11 @@
 //tabs
 .nav-tabs
 	border-bottom: none
+	@include rtl
+		.icon-undo
+			transform: rotate(180deg)
+		//.icon-truck
+			transform: rotate(180deg)
 	li .badge
 		background-color: white
 		border: solid 2px #eee

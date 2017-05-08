@@ -23,6 +23,9 @@
 	font-size: 1.2em
 .module_description
 	@extend .text-muted
+	@include rtl
+		.icon-search
+			transform: rotate(90deg)
 .hook_panel_header
 	@include margin(0, -10px, 0, -10px)
 	@include padding(0, 10px, 10px, 10px)
@@ -92,6 +95,9 @@
 	@include text-align(right)
 	.btn-group
 		@include text-align(left)
+		@include rtl
+			.icon-pencil
+				transform: rotate(270deg)
 li.sortable-placeholder
 	border: 1px dashed #CCC
 	background-color: #eee

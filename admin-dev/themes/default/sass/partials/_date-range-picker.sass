@@ -16,9 +16,9 @@ $color-calendar-range-compare: lighten($color-calendar-compare,10%)
 #datepicker
 	.input-selected
 		margin: 0
-	#date-start.input-selected, #date-end.input-selected,
+	#date-start.input-selected, #date-end.input-selected
 		border: solid 3px $color-calendar-day-selected
-	#date-start-compare.input-selected, #date-end-compare.input-selected,
+	#date-start-compare.input-selected, #date-end-compare.input-selected
 		border: solid 3px $color-calendar-day-selected-compare
 	div#datepicker-form
 		#date-range
@@ -44,6 +44,7 @@ $color-calendar-range-compare: lighten($color-calendar-compare,10%)
 				font-weight: 700
 				color: $color-bright
 				border: none
+
 			select
 				@include margin(2px,2px,0,0)
 		.form-date-body, .form-date-actions
@@ -124,11 +125,17 @@ $color-calendar-range-compare: lighten($color-calendar-compare,10%)
 				color: $color-bright
 				font-weight: 700
 				background-color: $color-calendar-day-selected
-				@include border-left-radius(15px)
+				@include ltr
+					@include border-left-radius(15px)
+				@include rtl
+					@include border-right-radius(15px)
 				//@extend .chevron-left
 				&.range-compare
 					background-color: mix($color-calendar-day-selected,$color-calendar-range-compare,70%)
-					@include border-left-radius(0)
+					@include ltr
+						@include border-left-radius(0)
+					@include rtl
+						@include border-right-radius(0)
 				&.end-selected-compare, &.start-selected-compare
 					background-color: mix($color-calendar-day-selected,$color-calendar-day-selected-compare,70%)
 				&.end-selected-compare
@@ -138,10 +145,16 @@ $color-calendar-range-compare: lighten($color-calendar-compare,10%)
 				font-weight: 700
 				background-color: $color-calendar-day-selected
 				//@extend .chevron-right
-				@include border-right-radius(15px)
+				@include ltr
+					@include border-right-radius(15px)
+				@include rtl
+					@include border-left-radius(15px)
 				&.range-compare
 					background-color: mix($color-calendar-day-selected,$color-calendar-range-compare,70%)
-					@include border-right-radius(0)
+					@include ltr
+						@include border-right-radius(0)
+					@include rtl
+						@include border-left-radius(0)
 				&.end-selected-compare, &.start-selected-compare
 					background-color: mix($color-calendar-day-selected,$color-calendar-day-selected-compare,70%)
 				&.start-selected-compare

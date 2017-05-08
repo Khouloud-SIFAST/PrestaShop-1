@@ -30,6 +30,7 @@ $header-height: 36px
 		font-size: 10px
 	@media (max-width: $screen-xs)
 		margin-left: 25px
+
 #header_shopname
 	@extend .navbar-brand
 	text-decoration: none
@@ -134,6 +135,8 @@ $header-height: 36px
 		.label-tooltip
 			padding: 9px 0
 			color: $brand-warning
+		//.material-icons
+			float: right
 	.maintenance-mode + .debug-mode
 		margin-left: 0
 #employee_infos
@@ -153,13 +156,21 @@ $header-height: 36px
 		border: none
 		padding: 0
 #employee_links
+	@include ltr
+		right: 0 !important
+		left: auto
+	@include rtl
+		left: 0 !important
+		right: auto
 	i
 		font-size: $icon-size-base
 	@media (max-width: $screen-sm)
 		@include ltr
-			left: 0 !important
-		@include rtl
 			right: 0 !important
+			left: auto
+		@include rtl
+			left: 0 !important
+			right: auto
 		li
 			color: white
 			font-size: 1.2em
@@ -176,7 +187,7 @@ $header-height: 36px
 			font-size: 0.7em
 
 .bo_search_form
-	float: left
+	@include float(left)
 	width: 250px
 	margin: 4px 0 0 0
 	@extend .hidden-xs
@@ -185,7 +196,7 @@ $header-height: 36px
 		color:       $main-color
 		background:  white
 		border:      1px solid $bg-content-color
-		border-left: none
+		@include border-left(none)
 		@include box-shadow(none)
 		@include transition(none)
 	.input-group
@@ -193,15 +204,28 @@ $header-height: 36px
 	.input-group-btn
 		@include border-radius(55px, 0, 0, 55px)
 		border:       1px solid $bg-content-color
-		border-right: none
+		//@include ltr
+			@include border-right(none)
+		//@include rtl
+			@include border-left(none)
 		.btn
 			@include border-radius(55px, 0, 0, 55px)
 			@include box-shadow(none)
 			height: 29px
 			outline: none
+
 		.btn-default
 			@include box-shadow(none)
 			border: 1px solid transparent !important
+			@include rtl
+				.icon-search
+					transform: rotate(90deg)
+		//&.dropdown-toggle
+			margin-left: initial
+			margin-right: initial
+			border-bottom-right-radius: 55px
+			border-top-right-radius: 55px
+
 	.clear_search
 		position: absolute
 		top: 6px
@@ -229,9 +253,12 @@ $header-height: 36px
 	@extend .nav
 	@extend .navbar-nav
 	@include ltr
-		@extend .navbar-left
-	@include rtl
 		@extend .navbar-right
+	@include rtl
+		@extend .navbar-left
+		&.navbar-right
+			float: left !important
+
 	@extend .hidden-sm
 	height:     $header-height
 	box-sizing: border-box
@@ -246,14 +273,6 @@ $header-height: 36px
 				box-sizing:     border-box
 				padding:        0 5px !important
 				vertical-align: middle
-
-#header_shop
-	@extend .nav
-	@extend .navbar-nav
-	@include ltr
-		@extend .navbar-left
-	@include rtl
-		@extend .navbar-right
 
 #ajax_running
 	position: absolute
@@ -284,7 +303,7 @@ $header-height: 36px
 		vertical-align: middle
 		position: absolute
 		top: .125rem
-		right: .125rem
+		left: .125rem
 		color: #fff
 		background: #fb0
 		font-size: .5625rem
@@ -364,3 +383,21 @@ $header-height: 36px
 						text-decoration: none
 						strong
 							color: #fff
+/*************************/
+#header-list
+	@extend .nav
+	@extend .navbar
+	@extend .header-list
+
+#debug-mode
+	.material-icons
+		float: right
+#header_search
+	.input-group .form-control:first-child,
+	.input-group-addon:first-child,
+	.input-group-btn:first-child > .btn,
+	.input-group-btn:first-child > .dropdown-toggle,
+	.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle)
+		@include border-right-radius(55px)
+		@include border-left-radius(0)
+		margin-right: initial

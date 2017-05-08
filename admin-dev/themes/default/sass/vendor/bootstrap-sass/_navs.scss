@@ -121,6 +121,9 @@
     > a {
       border-radius: $nav-pills-border-radius;
     }
+      .icon-search {
+        transform: rotate(90deg);
+      }
     + li {
       margin-left: 2px;
     }

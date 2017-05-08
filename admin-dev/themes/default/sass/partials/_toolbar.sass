@@ -69,6 +69,9 @@
 						color: $toolbar-buttons-hover-color
 				div
 					padding-top: 10px
+				@include rtl
+					.process-icon-modules-list
+						transform: rotate(180deg)
 			.dropdown-toolbar
 				display: none
 				@include float(right)
@@ -114,10 +117,16 @@
 		display:  inline-block
 		position: absolute
 		bottom:   0
-		left:     220px
+		@include ltr
+			left:     220px
+		@include rtl
+			right:     220px
 		a
 			display:        inline-block
-			float:          left
+			@include ltr
+				float:          left
+			@include rtl
+				float:          right
 			height:         40px
 			line-height:    40px
 			padding:        0 10px

@@ -56,6 +56,9 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 			@include box-shadow(none)
 			i
 				color: white
+		@include rtl
+			.icon-signout
+				transform: rotate(180deg)
 	&.btn-primary
 		i
 			color: white

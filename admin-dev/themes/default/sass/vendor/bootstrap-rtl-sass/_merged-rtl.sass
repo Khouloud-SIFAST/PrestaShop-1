@@ -129,7 +129,7 @@ h1, h2, h3, h4, h5, h6,
 	@media (min-width: $screen-sm-min)
 		> li > a
 			border-radius: $border-radius-base $border-radius-base 0 0
-			color:blue
+			//color:blue
 
 // progress-bar
 // Bar of progress
@@ -266,7 +266,7 @@ h1, h2, h3, h4, h5, h6,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle)
 	@include border-right-radius($border-radius-base)
 	@include border-left-radius(0)
-
+	margin-right: initial
 .input-group-addon:first-child
 	border-right: 1px solid $input-group-addon-border-color
 	border-left: 0px
@@ -276,7 +276,6 @@ h1, h2, h3, h4, h5, h6,
 .input-group-btn:last-child > .btn,
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child)
-	@include border-left-radius($border-radius-base)
 	@include border-right-radius(0)
 
 .input-group-addon:last-child
@@ -287,6 +286,7 @@ h1, h2, h3, h4, h5, h6,
 // -------------------------
 .input-group-btn
 	// Negative margin to only have a 1px border between the two
+
 	&:first-child > .btn
 		margin-left: -1px
 	&:last-child > .btn
@@ -340,7 +340,7 @@ h1, h2, h3, h4, h5, h6,
 // -------------------------
 .popover.top, 
 .popover.bottom
-	direction:ltr
+	direction: ltr
 
 .popover.top .popover-title, 
 .popover.top .popover-content,
@@ -356,3 +356,7 @@ th
 
 .list-group
 	padding-right: 0
+
+
+#help-container .content h2:before
+	margin: 0 0 0 8px

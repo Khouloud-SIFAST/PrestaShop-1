@@ -49,10 +49,19 @@ body
 				top: 2px
 			i
 				font-size: $icon-size-base
+			@include rtl
+				.icon-search
+					transform: rotate(90deg)
+
 		.panel
 			border: solid 1px #DDDDDD
+
 		.panel.tab-content
 			@include border-radius(0 0 3px 3px)
+			@include rtl
+				.icon-search
+					transform: rotate(90deg)
+
 	h3:not(.modal-title), .panel-heading
 		border: none
 		font-size: 1.2em
@@ -91,6 +100,7 @@ body
 				@include right(2px)
 				a.btn
 					float: none
+
 			> a.btn
 				position: absolute
 				top: 0
@@ -101,6 +111,9 @@ body
 				color: #CCC
 				@include float(left)
 				@include border-left(solid 1px #eee)
+				@include rtl
+					.process-icon-terminal, .process-icon-export
+						transform: rotate(180deg)
 				&:hover
 					text-decoration: none
 					color: $brand-primary
@@ -122,6 +135,9 @@ body
 	.breadcrumb
 		background-color: white
 		border: solid 1px darken($bg-content-color,10%)
+		@include rtl
+			.icon-pencil
+				transform: rotate(270deg)
 	.panel.panel-sm
 		padding: 8px!important
 		.panel-heading
@@ -133,6 +149,10 @@ body
 				padding-right: 8px
 		.form-group
 			margin-bottom: 8px
+			@include rtl
+				.icon-signout
+					transform: rotate(180deg)
+
 
 //data-focus
 .data-focus
@@ -181,6 +201,9 @@ body.display-modal
 				@include margin-right(5px)
 			.btn
 				line-height: 1em
+			@include rtl
+				.process-icon-back, .process-icon-next
+					transform: rotate(180deg)
 
 #header
 	.panel-footer
