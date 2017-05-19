@@ -867,6 +867,8 @@ class FrontControllerCore extends Controller
      *
      * @return bool
      */
+    public function setTheme($isNewTheme = true)
+    {}
     public function setMedia()
     {
         $this->registerStylesheet('theme-main', '/assets/css/theme.css', ['media' => 'all', 'priority' => 50]);

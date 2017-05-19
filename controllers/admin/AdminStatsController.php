@@ -152,7 +152,7 @@ class AdminStatsControllerCore extends AdminStatsTabController
 		LEFT JOIN `'._DB_PREFIX_.'product_attribute` pa ON p.id_product = pa.id_product
 		'.Product::sqlStock('p', 'pa').'
 		WHERE product_shop.active = 1');
-        return round($row['products'] ? 100 * $row['without_stock'] / $row['products'] : 0, 2).'%';
+        return round($row['products'] ? 100 * $row['without_stock'] / $row['products'] : 0, 2).' %';
     }
 
 
@@ -165,7 +165,7 @@ class AdminStatsControllerCore extends AdminStatsTabController
 		'.Shop::addSqlAssociation('product_attribute', 'pa', false).'
 		WHERE product_shop.active = 1';
         $value = Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue($sql);
-        return round(100 * $value, 2).'%';
+        return round(100 * $value, 2).' %';
     }
 
     public static function getDisabledCategories()
@@ -249,9 +249,9 @@ class AdminStatsControllerCore extends AdminStatsTabController
 		WHERE `invoice_date` BETWEEN "'.pSQL($date_from).' 00:00:00" AND "'.pSQL($date_to).' 23:59:59"
 		'.Shop::addSqlRestriction(false, 'o'));
         if (!$distinct_products) {
-            return '0%';
+            return '0 %';
         }
-        return round(100 * $distinct_products / AdminStatsController::getTotalProducts()).'%';
+        return round(100 * $distinct_products / AdminStatsController::getTotalProducts()).' %';
     }
 
     public static function getOrders($date_from, $date_to, $granularity = false)
@@ -606,7 +606,7 @@ class AdminStatsControllerCore extends AdminStatsTabController
                 break;
 
             case 'disabled_products':
-                $value = round(100 * AdminStatsController::getDisabledProducts() / AdminStatsController::getTotalProducts(), 2).'%';
+                $value = round(100 * AdminStatsController::getDisabledProducts() / AdminStatsController::getTotalProducts(), 2).' %';
                 $tooltip = sprintf($this->trans('%s of your products are disabled and not visible to your customers', array(), 'Admin.Stats.Help'), $value);
                 ConfigurationKPI::updateValue('DISABLED_PRODUCTS', $value);
                 ConfigurationKPI::updateValue('DISABLED_PRODUCTS_EXPIRE', strtotime('+2 hour'));
@@ -615,7 +615,7 @@ class AdminStatsControllerCore extends AdminStatsTabController
             case '8020_sales_catalog':
                 $value = AdminStatsController::get8020SalesCatalog(date('Y-m-d', strtotime('-30 days')), date('Y-m-d'));
                 $tooltip = sprintf($this->trans('Within your catalog, %s of your products have had sales in the last 30 days', array(), 'Admin.Stats.Help'), $value);
-                $value = sprintf($this->trans('%d%% of your Catalog', array(), 'Admin.Stats.Feature'), $value);
+                $value = sprintf($this->trans('%d %% of your Catalog', array(), 'Admin.Stats.Feature'), $value);
                 ConfigurationKPI::updateValue('8020_SALES_CATALOG', $value);
                 ConfigurationKPI::updateValue('8020_SALES_CATALOG_EXPIRE', strtotime('+12 hour'));
                 break;
@@ -712,7 +712,7 @@ class AdminStatsControllerCore extends AdminStatsTabController
                 if ($translated) {
                     $value = round(100 * $translated / $total, 1);
                 }
-                $value .= '%';
+                $value .= ' %';
                 ConfigurationKPI::updateValue('FRONTOFFICE_TRANSLATIONS', $value);
                 ConfigurationKPI::updateValue('FRONTOFFICE_TRANSLATIONS_EXPIRE', strtotime('+2 min'));
                 break;

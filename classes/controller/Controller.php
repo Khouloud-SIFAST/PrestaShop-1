@@ -128,6 +128,8 @@ abstract class ControllerCore
      * Sets default media list for this controller
      */
     abstract public function setMedia();
+    abstract public function setTheme();
+
 
     /**
      * returns a new instance of this controller
@@ -188,6 +190,7 @@ abstract class ControllerCore
             // setMedia MUST be called before postProcess
             if (!$this->content_only && ($this->display_header || (isset($this->className) && $this->className))) {
                 $this->setMedia();
+                $this->setTheme();
             }
 
             // postProcess handles ajaxProcess

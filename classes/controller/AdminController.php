@@ -2651,12 +2651,25 @@ class AdminControllerCore extends Controller
     {
     }
 
-    public function setMedia($isNewTheme = false)
+    public function setTheme($isNewTheme = true)
     {
         if ($isNewTheme) {
+            if ($this->context->language->is_rtl) {
+                $this->addCSS(__PS_BASE_URI__ . $this->admin_webpath . '/themes/new-theme/public/theme-rtl.css', 'all', 1);
+            }
+        }
+    }
+
+    public function setMedia($isNewTheme = false)
+    {
+       if ($isNewTheme) {
+            if ($this->context->language->is_rtl) {
+                $this->addCSS(__PS_BASE_URI__.$this->admin_webpath.'/themes/new-theme/public/theme-rtl.css', 'all', 1);
+            }
             $this->addCSS(__PS_BASE_URI__.$this->admin_webpath.'/themes/new-theme/public/theme.css', 'all', 1);
             $this->addJS(__PS_BASE_URI__.$this->admin_webpath.'/themes/new-theme/public/bundle.js');
             $this->addjQueryPlugin(array('chosen'));
+
         } else {
 
             //Bootstrap
