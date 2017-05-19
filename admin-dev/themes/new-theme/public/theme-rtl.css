@@ -100,6 +100,15 @@ caption {
     border-bottom-right-radius: initial;
     border-top-right-radius: initial;
 }
+
+.ps-dropdown>.ps-dropdown-menu:before {
+    right: 99px;
+    left: auto;
+}
+.ps-dropdown>.ps-dropdown-menu:after {
+    right: 100px;
+    left:auto
+}
 /***Content***/
 .header-toolbar {
     right: 13.125rem;
